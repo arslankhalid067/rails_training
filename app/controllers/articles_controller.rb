@@ -15,6 +15,9 @@ class ArticlesController < ApplicationController
     end
     def show
       @article=Article.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "No Post Found"
+      redirect_to :action => 'index'
     end
     
     def edit
