@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+    has_many :comments, dependent: :destroy
+
     validates :title,:body, presence: true
     validates :title, uniqueness: true, length: {minimum: 2, maximum: 10}
 

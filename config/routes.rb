@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'welcome/index/:name', to: "welcome#index", foo: "bar"
 
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
+
+
 
 
   

@@ -1,0 +1,20 @@
+<% if has_comments(@article) %>
+
+<h2><%=pluralize( @article.comments.count, 'Comment')%></h2>
+
+    <% @article.comments.each do |comment|  %>
+        <hr>
+        <p>
+            <strong><%= comment.Commenter+": " %></strong>
+            <%= comment.body  %>
+        </p>
+        <%= link_to 'Delete Comment', [comment.article , comment], method: :delete%>
+        
+        <hr>
+        
+        
+    <%end%>
+<%else%>
+    <h3>0 comments</h3>
+ <%end%>
+

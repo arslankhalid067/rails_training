@@ -1,4 +1,8 @@
 class ArticlesController < ApplicationController
+  
+    # def default_url_options
+    #     { locale: I18n.locale, name: "Hello" }
+    #   end
     def index
         @articles = Article.all
     end
@@ -15,9 +19,7 @@ class ArticlesController < ApplicationController
     end
     def show
       @article=Article.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-      flash[:notice] = "No Post Found"
-      redirect_to :action => 'index'
+      
     end
     
     def edit
@@ -25,6 +27,7 @@ class ArticlesController < ApplicationController
     end
     def update
         @article=Article.find(params[:id])
+        
         if @article.update_attributes(article_params)
             redirect_to articles_path, :notice=> "Post Updated"
         else

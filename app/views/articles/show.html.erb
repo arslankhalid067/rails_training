@@ -8,4 +8,9 @@
     <%= @article.body %>
 </p>
 
+<%= render './partials/comments' %>
+
+
+<%=  render './partials/comments_form'%>
+
 <%= link_to "All Articles", articles_path %>
