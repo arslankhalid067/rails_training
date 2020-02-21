@@ -1,4 +1,4 @@
-<% if has_comments(@article) %>
+
 
 <h2><%=pluralize( @article.comments.count, 'Comment')%></h2>
 
@@ -14,7 +14,6 @@
         
         
     <%end%>
-<%else%>
-    <h3>0 comments</h3>
- <%end%>
+
+ 
 
